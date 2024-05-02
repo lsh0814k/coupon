@@ -27,8 +27,12 @@ public class DistributeLockExecutor {
             log.error(e.getMessage(), e);
             throw new RuntimeException(e);
         } finally {
-            if (lock.isHeldByCurrentThread()) {
-                lock.unlock();
+            try {
+                if (lock.isHeldByCurrentThread()) {
+                    lock.unlock();
+                }
+            } catch (IllegalMonitorStateException e) {
+                log.error("message: {}, ", e.getMessage(), e);
             }
         }
     }
