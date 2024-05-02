@@ -72,7 +72,7 @@ class CouponIssueServiceTest extends TestConfig {
                 .totalQuantity(100)
                 .issuedQuantity(0)
                 .dateIssueStart(LocalDateTime.now().minusDays(1))
-                .dateIssuedEnd(LocalDateTime.now().plusDays(1))
+                .dateIssueEnd(LocalDateTime.now().plusDays(1))
                 .build();
         couponJpaRepository.save(coupon);
 
@@ -98,7 +98,7 @@ class CouponIssueServiceTest extends TestConfig {
                 .totalQuantity(100)
                 .issuedQuantity(100)
                 .dateIssueStart(LocalDateTime.now().minusDays(1))
-                .dateIssuedEnd(LocalDateTime.now().plusDays(1))
+                .dateIssueEnd(LocalDateTime.now().plusDays(1))
                 .build();
         couponJpaRepository.save(coupon);
 
@@ -118,7 +118,7 @@ class CouponIssueServiceTest extends TestConfig {
                 .totalQuantity(100)
                 .issuedQuantity(0)
                 .dateIssueStart(LocalDateTime.now().minusDays(2))
-                .dateIssuedEnd(LocalDateTime.now().minusDays(1))
+                .dateIssueEnd(LocalDateTime.now().minusDays(1))
                 .build();
         couponJpaRepository.save(coupon);
 
@@ -138,7 +138,7 @@ class CouponIssueServiceTest extends TestConfig {
                 .totalQuantity(100)
                 .issuedQuantity(0)
                 .dateIssueStart(LocalDateTime.now().minusDays(1))
-                .dateIssuedEnd(LocalDateTime.now().plusDays(1))
+                .dateIssueEnd(LocalDateTime.now().plusDays(1))
                 .build();
         couponJpaRepository.save(coupon);
 

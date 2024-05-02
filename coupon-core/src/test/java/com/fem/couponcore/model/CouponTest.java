@@ -63,7 +63,7 @@ class CouponTest {
         // given
         Coupon coupon = Coupon.builder()
                 .dateIssueStart(LocalDateTime.now().plusDays(1))
-                .dateIssuedEnd(LocalDateTime.now().plusDays(2))
+                .dateIssueEnd(LocalDateTime.now().plusDays(2))
                 .build();
         // when
         boolean result = coupon.availableIssuedDate();
@@ -78,7 +78,7 @@ class CouponTest {
         // given
         Coupon coupon = Coupon.builder()
                 .dateIssueStart(LocalDateTime.now().minusDays(1))
-                .dateIssuedEnd(LocalDateTime.now().plusDays(1))
+                .dateIssueEnd(LocalDateTime.now().plusDays(1))
                 .build();
         // when
         boolean result = coupon.availableIssuedDate();
@@ -93,7 +93,7 @@ class CouponTest {
         // given
         Coupon coupon = Coupon.builder()
                 .dateIssueStart(LocalDateTime.now().minusDays(2))
-                .dateIssuedEnd(LocalDateTime.now().minusDays(1))
+                .dateIssueEnd(LocalDateTime.now().minusDays(1))
                 .build();
         // when
         boolean result = coupon.availableIssuedDate();
@@ -110,7 +110,7 @@ class CouponTest {
                 .totalQuantity(100)
                 .issuedQuantity(99)
                 .dateIssueStart(LocalDateTime.now().minusDays(1))
-                .dateIssuedEnd(LocalDateTime.now().plusDays(2))
+                .dateIssueEnd(LocalDateTime.now().plusDays(2))
                 .build();
         // when
         coupon.issue();
@@ -127,7 +127,7 @@ class CouponTest {
                 .totalQuantity(100)
                 .issuedQuantity(100)
                 .dateIssueStart(LocalDateTime.now().minusDays(1))
-                .dateIssuedEnd(LocalDateTime.now().plusDays(2))
+                .dateIssueEnd(LocalDateTime.now().plusDays(2))
                 .build();
         // when, then
         CouponIssueException couponIssueException = assertThrows(CouponIssueException.class, coupon::issue);
@@ -142,7 +142,7 @@ class CouponTest {
                 .totalQuantity(100)
                 .issuedQuantity(99)
                 .dateIssueStart(LocalDateTime.now().plusDays(1))
-                .dateIssuedEnd(LocalDateTime.now().plusDays(2))
+                .dateIssueEnd(LocalDateTime.now().plusDays(2))
                 .build();
         // when, then
         CouponIssueException couponIssueException = assertThrows(CouponIssueException.class, coupon::issue);
