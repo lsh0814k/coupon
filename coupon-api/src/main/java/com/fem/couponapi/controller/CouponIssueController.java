@@ -35,12 +35,21 @@ public class CouponIssueController {
         return new CouponIssueResponseDto(true, null);
     }
 
+    /**
+     * 동시성 문제를 record lock 을 이용하여 처리
+     * redisson 을 이용할 때 보다 rps 가 높다.
+     * 데이터베이스에 부하가 높다
+     */
     @PostMapping("/v3/issue")
     public CouponIssueResponseDto issueV3(@RequestBody CouponIssueRequestDto body) {
         couponIssueRequestService.issueRequestV3(body);
         return new CouponIssueResponseDto(true, null);
     }
 
+    /**
+     * redis set 을 이용하여 쿠폰 발급 검증을 처리
+     * redis cache 를 이용하여
+     */
     @PostMapping("/v1/issue-async")
     public CouponIssueResponseDto asyncIssueV1(@RequestBody CouponIssueRequestDto body) {
         couponIssueRequestService.asyncIssueRequestV1(body);
